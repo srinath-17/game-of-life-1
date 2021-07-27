@@ -19,7 +19,7 @@ pipeline {
     }
     post {
         success {
-            artifacts 'gameoflife-web/target/gameoflife.war'
+            archive '**/gameoflife.war'
             junit '**/TEST-*.xml'
         }
         
