@@ -9,6 +9,7 @@ pipeline {
             steps {
 
                 git branch: 'master', url: 'https://github.com/asquarezone/game-of-life.git'
+                input 'Continue to next stage? '
             }
         }
         stage('build') {
