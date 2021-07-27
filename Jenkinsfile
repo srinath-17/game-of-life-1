@@ -15,7 +15,7 @@ pipeline {
     }
     post {
         success {
-            artifacts '**/*.war'
+            artifacts 'gameoflife-web/target/gameoflife.war'
             junit '**/TEST-*.xml'
         }
         
