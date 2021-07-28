@@ -10,13 +10,14 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-
+                sh 'GIT URL is ${GIT_URL}'
                 git branch: "${params.BRANCH}", url: 'https://github.com/asquarezone/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
             }
         }
         stage('build') {
             steps {
+                echo env.GIT_URL
                 sh 'mvn package'
             }
         }
