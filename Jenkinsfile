@@ -6,6 +6,7 @@ pipeline {
     }
     parameters {
         string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
+        choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], description: 'maven goals')
     }
     options {
         timeout(time: 1, unit: 'HOURS')
@@ -31,7 +32,7 @@ pipeline {
             steps {
                 echo env.GIT_URL
                 timeout(time:10, unit: 'MINUTES') {
-                    sh 'mvn package'
+                    sh "mvn ${params.GOAL}"
                 }
                 
             }
