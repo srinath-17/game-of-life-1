@@ -20,7 +20,7 @@ pipeline {
                 DUMMY = 'FUN'
             }
             steps {
-                
+                mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com'
                 git branch: "${params.BRANCH}", url: 'https://github.com/asquarezone/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
                 echo env.CI_ENV
@@ -41,6 +41,10 @@ pipeline {
         success {
             archive '**/gameoflife.war'
             junit '**/TEST-*.xml'
+            mail subject: 'BUILD Completed Successfully '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com'
+        }
+        failure {
+            mail subject: 'BUILD Failed '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com'
         }
         
     }
