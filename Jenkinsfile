@@ -46,6 +46,15 @@ pipeline {
         failure {
             mail subject: 'BUILD Failed '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
         }
-        
+        always {
+            echo "Finished"
+        }
+        changed {
+            echo "Changed"
+        }
+        unstable {
+            mail subject: 'BUILD Unstable '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
+
+        }
     }
 }
