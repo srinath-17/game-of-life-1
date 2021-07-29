@@ -34,7 +34,13 @@ pipeline {
                 timeout(time:10, unit: 'MINUTES') {
                     sh "mvn ${params.GOAL}"
                 }
-                
+                stash includes: '**/gameoflife.war', name: 'golwar'
+            }
+        }
+        stage('devserver'){
+            agent { label: 'RHEL,'}
+            steps {
+                unstash name: 'golwar'
             }
         }
     }
