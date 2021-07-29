@@ -1,8 +1,7 @@
 pipeline {
     agent { label 'GOL'}
     triggers {
-        cron('H * * * *')
-        pollSCM('* * * * *')
+        cron('5 23 * * *')
     }
     parameters {
         string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
