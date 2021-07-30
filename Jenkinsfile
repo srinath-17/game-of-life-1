@@ -37,10 +37,12 @@ pipeline {
                 stash includes: '**/gameoflife.war', name: 'golwar'
             }
         }
-        stage('devserver'){
-            agent { label 'RHEL,'}
-            steps {
-                unstash name: 'golwar'
+        stage('SONAR ANALYSIS') {
+            steps{
+                withSonarQubeEnv('SONAR-8.9LTS') {
+                // requires SonarQube Scanner for Maven 3.2+
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                }
             }
         }
     }
