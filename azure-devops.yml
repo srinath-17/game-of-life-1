@@ -10,9 +10,13 @@ pool:
   name: Default  
 
 steps:
+  - script: echo $(Build.ArtifactStagingDirectory)
   - task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
       goals: $(MVN_GOAL)
       jdkVersionOption: 1.8
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
+  
+    
+    
