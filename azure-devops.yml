@@ -1,3 +1,4 @@
+---
 trigger:
   - master
 
@@ -12,4 +13,3 @@ steps:
       goals: 'package'
       jdkVersionOption: 1.8
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
-
