@@ -45,7 +45,7 @@ pipeline {
                     sh 'cd deployment && ansible-playbook -i hosts deploy.yaml'
                 }
             }
-        }
+        
     }
     post {
         success {
