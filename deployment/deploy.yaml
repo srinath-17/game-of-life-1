@@ -1,0 +1,7 @@
+---
+- name: Testing Ansible
+  hosts: all
+  become: yes
+  tasks:
+    - name: debug
+      msg: "ansible is working"
