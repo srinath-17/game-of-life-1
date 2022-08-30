@@ -8,7 +8,7 @@
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
     <properties>
-        <build.number>SNAPSHOT</build.number>
+        <build.number>RELEASE</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.4</easyb.version>
         <cobertura.version>2.6</cobertura.version>
@@ -31,7 +31,7 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://172.31.17.79:8081/repository/gameoflife/</url>
+	      <url>http://54.82.190.136:8081//repository/gameoflife/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
